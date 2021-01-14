@@ -11,7 +11,20 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Blessed it be the Name of our God');
+    // console.log('Blessed it be the Name of our God');
+
+    if(!name) {
+      // display alert
+    } 
+    else if(name && isEditing) {
+      // deal with edit
+    }
+    else {
+      // show alert
+      const newItem = {id: new Date().getTime().toString(), title: name};
+      setList([...list, newItem]);
+      setName('')
+    }
   };
 
   return (
