@@ -21,7 +21,9 @@ function App() {
     }
     else {
       // show alert
+      // create the new itme  and add it to the list
       const newItem = {id: new Date().getTime().toString(), title: name};
+      // spread operator to get the old value(s)
       setList([...list, newItem]);
       setName('');
     }
@@ -45,12 +47,14 @@ function App() {
           </button>
         </div>
       </form>
-      <div className ="grocery-container">
-        <List items ={list}/>
-        <button className ="clear-btn">
-          Clear Items
-        </button>
-      </div>
+      {list.length > 0 &&
+        <div className ="grocery-container">
+          <List items ={list}/>
+          <button className ="clear-btn">
+            Clear Items
+          </button>
+        </div>
+      }
     </section>
   );
 }
