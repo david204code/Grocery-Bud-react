@@ -9,8 +9,8 @@ function App() {
   const [editID, setEditID] = useState(null);
   const [alert, setAlert] = useState({
     show: true, 
-    msg:'Love you Jesus', 
-    type:'success',
+    msg:'', 
+    type:'',
   });
 
   const handleSubmit = (e) => {
@@ -18,7 +18,8 @@ function App() {
     // console.log('Blessed it be the Name of our God');
 
     if(!name) {
-      // display alert
+      // display alert and setting the attribute of the object
+      showAlert(true, 'danger', 'please enter value');
     } 
     else if(name && isEditing) {
       // deal with edit
@@ -32,6 +33,11 @@ function App() {
       setName('');
     }
   };
+
+  // function for the alert
+  const showAlert = (show =false, type ="", msg ="") => {
+    setAlert({show:show, type:type, msg:msg,})
+  }
 
   return (
     <section className ="section-center">
