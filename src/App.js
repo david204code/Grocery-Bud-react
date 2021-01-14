@@ -23,7 +23,7 @@ function App() {
       // show alert
       const newItem = {id: new Date().getTime().toString(), title: name};
       setList([...list, newItem]);
-      setName('')
+      setName('');
     }
   };
 
@@ -46,7 +46,7 @@ function App() {
         </div>
       </form>
       <div className ="grocery-container">
-        <List />
+        <List items ={list}/>
         <button className ="clear-btn">
           Clear Items
         </button>
