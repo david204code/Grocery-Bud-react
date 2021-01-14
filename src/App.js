@@ -36,13 +36,13 @@ function App() {
 
   // function for the alert
   const showAlert = (show =false, type ="", msg ="") => {
-    setAlert({show:show, type:type, msg:msg,})
+    setAlert({ show:show, type:type, msg:msg, })
   }
 
   return (
     <section className ="section-center">
       <form className ="grocery-form" onSubmit ={handleSubmit}>
-        {alert.show && <Alert {...alert}/>}
+        {alert.show && <Alert {...alert} removeAlert ={showAlert}/>}
         <h3>Grocery bud</h3>
         <div className ="form-control">
           <input 
