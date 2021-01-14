@@ -26,6 +26,7 @@ function App() {
     }
     else {
       // show alert
+      showAlert(true, 'success', 'item added to the list');
       // create the new itme  and add it to the list
       const newItem = {id: new Date().getTime().toString(), title: name};
       // spread operator to get the old value(s)
@@ -37,6 +38,11 @@ function App() {
   // function for the alert
   const showAlert = (show =false, type ="", msg ="") => {
     setAlert({ show:show, type:type, msg:msg, })
+  }
+
+  const clearList = () => {
+    showAlert(true, 'danger', 'empty list');
+    setList([]);
   }
 
   return (
@@ -60,7 +66,7 @@ function App() {
       {list.length > 0 &&
         <div className ="grocery-container">
           <List items ={list}/>
-          <button className ="clear-btn">
+          <button className ="clear-btn" onClick ={clearList}>
             Clear Items
           </button>
         </div>
